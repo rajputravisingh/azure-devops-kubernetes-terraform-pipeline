@@ -1,7 +1,5 @@
 # Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# minimal pipeline that you can customize to build and deploy your code.
 
 trigger:
   branches:
@@ -13,17 +11,18 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-  
+
 jobs:
 - job: job1
-  steps: echo Hi DevOps
-  displayName: 'One line to execute'
-     
-steps:
-- script: echo  Azure-DevOps.. is interesting!
-  displayName: 'Run a one-line script'
+  steps: 
+  - script: echo Hi DevOps
+    displayName: 'One line to execute'
+  - script: echo Azure-DevOps.. is interesting!
+    displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- job: Job2
+  steps:
+  - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+    displayName: 'Run a multi-line script'
