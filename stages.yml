@@ -10,17 +10,27 @@ stages:
   - job: first_build_job
     steps:
     - bash: echo This is build stage
+
+
 - stage: Dev_Deploy
+  dependsOn: Build
   jobs:
   - job: Code_deploy_Dev_env
     steps: 
     - bash: echo Hello from Dev environment
+
+
 - stage: QA_deploy
   jobs:
   - job: QA_build
     steps: 
     - bash: echo hello from QA environment
+  
+
 - stage: Production_deploy
+  dependsOn: 
+  - Dev_Deploy
+  - QA_deploy
   jobs:
   - job: Product_go_live
     steps: 
