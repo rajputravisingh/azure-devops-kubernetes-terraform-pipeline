@@ -13,7 +13,12 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
-
+  
+jobs:
+- job: job1
+  steps: echo Hi DevOps
+  displayName: 'One line to execute'
+     
 steps:
 - script: echo  Azure-DevOps.. is interesting!
   displayName: 'Run a one-line script'
