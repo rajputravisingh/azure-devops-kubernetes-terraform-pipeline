@@ -14,9 +14,12 @@ stages:
   - job: first_build_job
     steps:
     - bash: echo This is build stage
+    - bash: echo $(pipeline-variables)
 
 
 - stage: Dev_Deploy
+  variables:
+    environment: Dev
   dependsOn: Build
   jobs:
   - job: Code_deploy_Dev_env
