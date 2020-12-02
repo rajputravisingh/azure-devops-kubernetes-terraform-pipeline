@@ -1,7 +1,10 @@
-trigger:
-  branches:
-    - releases/*
-    - master
+resources:
+  pipelines:
+  - pipeline: 
+    trigger:
+      branches:
+      - releases/*
+      - master
 
 pool:
   vmImage: 'ubuntu-latest'
