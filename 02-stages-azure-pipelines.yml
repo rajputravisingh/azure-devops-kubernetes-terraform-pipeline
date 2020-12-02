@@ -1,13 +1,10 @@
-resources:
-  pipelines:
-  - pipeline: cipipeline
-    source: dev-env
-    trigger: 
-      branches:
-        include: 
-        - releases/*
-        exclude:
-        - releases/old*
+trigger:
+  branches:
+    include:
+    - master
+    - releases/*
+    exclude:
+    - releases/old*
 pool:
   vmImage: 'ubuntu-latest'
   
