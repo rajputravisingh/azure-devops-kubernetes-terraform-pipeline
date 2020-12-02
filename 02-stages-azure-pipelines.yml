@@ -1,10 +1,13 @@
 resources:
   pipelines:
-  - pipeline: 
-    trigger:
+  - pipeline: securitylib
+    source: security-lib-ci
+    trigger: 
       branches:
-      - releases/*
-      - master
+        include: 
+        - releases/*
+        exclude:
+        - releases/old*
 
 pool:
   vmImage: 'ubuntu-latest'
