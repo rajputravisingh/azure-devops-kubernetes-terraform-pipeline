@@ -49,13 +49,25 @@ stages:
         ArtifactName: 'drop'
         publishLocation: 'Container'
 - stage: Dev_Deploy
-  variables:
-    environment: Dev
-  dependsOn: Build
   jobs:
-  - job: Code_deploy_Dev_env
-    steps: 
-    - bash: echo Hello from Dev environment
+  - deployment: DevDeploy
+    environment: Dev
+    strategy:
+      runOnce: 
+        deploy:
+          steps:
+          - script: echo deploy to dev
+
+- stage: QA_Deploy
+  jobs:
+  - deployment: QADeploy
+    environment: QA
+    strategy:
+      runOnce: 
+        deploy:
+          steps:
+          - script: echo deploy to QA
+
 
 
 # - stage: QA_deploy
