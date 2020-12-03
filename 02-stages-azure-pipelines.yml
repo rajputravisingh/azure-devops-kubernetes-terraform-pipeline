@@ -18,6 +18,16 @@ stages:
     - bash: echo $(Build.Id)
     - bash: echo $(Build.Reason)
     - bash: echo $(Build.ContainerId)
+    - bash: echo $(Build.SourceBranchName)
+    - bash: echo $(Build.SourcesDirectory)
+    - bash: echo $(agent.OS)
+    - bash: echo $(agent.Name)
+    - bash: echo $(agent.WorkFolder)
+    - bash: echo $(agent.Id)
+    - bash: echo $(System.HostType)
+    - bash: echo $(System.JobAttempt)
+    - bash: echo $(environment.Name)
+    
 
 
 - stage: Dev_Deploy
