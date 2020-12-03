@@ -27,6 +27,7 @@ stages:
     - bash: echo $(System.HostType)
     - bash: echo $(System.JobAttempt)
     - bash: echo $(environment.Name)
+    - bash: ls -R $(System.DefaultWorkingDirectory)
     
 
 
