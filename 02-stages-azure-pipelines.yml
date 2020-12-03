@@ -5,14 +5,22 @@ trigger:
     - releases/*
     exclude:
     - releases/old*
+
+strategy:
+  matrix:
+    linux:
+      operatingSystem: 'ubuntu-latest'
+    mac:
+      operatingSystem: 'macos-latest'
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: $(operatingSystem)
   
 stages:
 - stage: Build
   jobs:
   - job: first_build_job
     steps:
+    - bash: echo Running on the $(operatingSystem)
     - bash: echo This is build stage
     - bash: echo $(Build.BuildNumber)
     - bash: echo $(Build.Id)
